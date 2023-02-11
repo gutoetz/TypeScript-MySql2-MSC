@@ -1,3 +1,8 @@
+interface IRProduct {
+  name: string,
+  amount: string,
+}
+
 interface INewProduct {
   id: number,
   name: string,
@@ -8,4 +13,4 @@ interface IProduct extends INewProduct {
   orderId?: number, 
 }
 
-export { INewProduct, IProduct };
+export { INewProduct, IProduct, IRProduct };

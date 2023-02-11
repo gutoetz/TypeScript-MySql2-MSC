@@ -13,4 +13,11 @@ interface IProduct extends INewProduct {
   orderId?: number, 
 }
 
-export { INewProduct, IProduct, IRProduct };
+interface IUser {
+  username: string,
+  vocation: string,
+  level: number,
+  password:string,
+}
+
+export { INewProduct, IProduct, IRProduct, IUser };

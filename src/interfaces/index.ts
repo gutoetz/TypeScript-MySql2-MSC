@@ -1,8 +1,11 @@
-interface IProduct {
+interface INewProduct {
   id: number,
   name: string,
   amount: string,
+}
+
+interface IProduct extends INewProduct {
   orderId?: number, 
 }
 
-export default IProduct;
+export { INewProduct, IProduct };

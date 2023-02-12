@@ -13,8 +13,10 @@ class UsersModels {
     const { username, level, password, vocation } = user;
     const query = `INSERT INTO Trybesmith.users
      (username, level, password, vocation) VALUES(?,?,?,?)`;
-    await this.connection.execute<ResultSetHeader>(query, [username, level, password, vocation]);
-    const newToken = createToken(username, vocation, level);
+    const [{ insertId }] = await this.connection
+      .execute<ResultSetHeader>(query, [username, level, password, vocation]);
+    const id = insertId;
+    const newToken = createToken(username, id);
     return newToken;
   } 
 }

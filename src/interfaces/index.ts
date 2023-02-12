@@ -20,10 +20,19 @@ interface IUser {
   password:string,
 }
 
+interface IUserWId extends IUser {
+  id: number
+}
+
 interface IOrder {
   id: number,
   userId:number,
   productsId:number[]
 }
 
-export { INewProduct, IProduct, IRProduct, IUser, IOrder };
+interface IUserLogin {
+  username: string,
+  password: string,
+}
+
+export { INewProduct, IProduct, IRProduct, IUser, IOrder, IUserLogin, IUserWId };

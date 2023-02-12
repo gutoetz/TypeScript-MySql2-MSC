@@ -20,4 +20,10 @@ interface IUser {
   password:string,
 }
 
-export { INewProduct, IProduct, IRProduct, IUser };
+interface IOrder {
+  id: number,
+  userId:number,
+  productsId:number[]
+}
+
+export { INewProduct, IProduct, IRProduct, IUser, IOrder };

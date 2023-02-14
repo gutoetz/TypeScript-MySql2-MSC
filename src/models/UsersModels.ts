@@ -1,6 +1,6 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
 import { IUser } from '../interfaces';
-import createToken from '../utils/JWT';
+import { createToken } from '../utils/JWT';
 
 class UsersModels {
   public connection: Pool;

@@ -35,4 +35,16 @@ interface IUserLogin {
   password: string,
 }
 
-export { INewProduct, IProduct, IRProduct, IUser, IOrder, IUserLogin, IUserWId };
+interface INewOrder {
+  productsIds: number[],
+  userId: number,
+}
+
+interface IToken {
+  username: string,
+  id: number,
+  iat: number,
+  exp: number,
+}
+
+export { INewProduct, IProduct, IRProduct, IUser, IOrder, IUserLogin, IUserWId, INewOrder, IToken };

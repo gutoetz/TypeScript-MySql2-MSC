@@ -1,7 +1,7 @@
 import { Pool, RowDataPacket } from 'mysql2/promise';
 import { IUserWId, IUserLogin } from '../interfaces';
 import HttpException from '../utils/http.exception';
-import createToken from '../utils/JWT';
+import { createToken } from '../utils/JWT';
 
 class LoginModels {
   connection: Pool;

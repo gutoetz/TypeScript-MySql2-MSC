@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import HttpException from './http.exception';
 
 dotenv.config();
 
@@ -11,4 +12,18 @@ const createToken = (username: string, id: number) => jwt.sign(
   { expiresIn: '7d', algorithm: 'HS256' },
 );
 
-export default createToken;
+const authenticatToken = async (token: string | undefined) => {
+  if (!token) {
+    const error = 'Token not found';
+    throw new HttpException(401, error);
+  }
+  try {
+    const decryptedData = jwt.verify(token, secret) as JwtPayload;
+    return (decryptedData);
+  } catch (err) {
+    const error = 'Invalid token';
+    throw new HttpException(401, error);
+  }
+};
+
+export { createToken, authenticatToken };
